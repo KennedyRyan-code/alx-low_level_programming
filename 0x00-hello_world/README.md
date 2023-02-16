@@ -4,3 +4,4 @@
 1-compiler Comiles a C file but does not link
 2-assembler  a script that generates the assembly code of a C code and save it in an output file.
 3-name a script that compiles a C file and creates an executable named file.
+4-puts.c  C program that prints using the function puts.
