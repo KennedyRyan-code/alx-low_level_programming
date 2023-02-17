@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
- * KennedyR-code
- * main - print the alphabet in lowercase
- * Return: 0 Always (success)
+ * main - Entry point
+ *
+ * Return: 0 (success)
  */
 int main(void)
 {
