@@ -29,9 +29,10 @@ char *_strstr(char *haystack, char *needle)
 			}
 		}
 		else
+		{
 			p2 = needle;
 			start = NULL;
-
+		}
 		p1++;
 	}
 	return (NULL);
