@@ -8,7 +8,6 @@
 
 int check(int a, int b)
 {
-	int res = check(a, b - 1);
 
 	if (b == 1)
 	{
@@ -19,7 +18,7 @@ int check(int a, int b)
 		return (0);
 	}
 
-	return (res);
+	return (check(a, b - 1));
 }
 
 /**
@@ -30,13 +29,12 @@ int check(int a, int b)
  */
 int is_prime_number(int n)
 {
-	int res = check(n, n - 1);
 
 	if (n <= 1)
 	{
 		return (0);
 	}
 
-	return (res);
+	return (check(n, n - 1));
 
 }
