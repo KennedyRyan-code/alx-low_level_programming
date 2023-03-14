@@ -23,10 +23,7 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	for (i = 0; i < len; i++)
-	{
-		new_s[i] = s[i];
-	}
-	return (new_s);
+
+	return (memcpy(new_s, s, len));
 
 }
