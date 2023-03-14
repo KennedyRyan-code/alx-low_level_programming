@@ -11,6 +11,7 @@
 char *_strdup(char *str)
 {
 	unsigned int len = 0;
+	unsigned int i;
 	char *new_s;
 
 	while (str[len] + 1)
@@ -22,6 +23,10 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	return (memcpy(new_s, str, len));
+	for (i = 0; i < len; i++)
+	{
+		new_s[i] = s[i];
+	}
+	return (new_s);
 
 }
