@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include "function_pointers.h"
 /**
  * int_index - a function that seaches for an integer
