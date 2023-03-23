@@ -1,4 +1,5 @@
 #include<stdarg.h>
+#include<stdio.h>
 /**
  * print_numbers - prints numbers.
  * @separator: string
