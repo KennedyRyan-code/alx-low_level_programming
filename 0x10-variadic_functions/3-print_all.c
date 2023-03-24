@@ -8,59 +8,47 @@
  *
  * Return: nothing
  */
+
 void print_all(const char * const format, ...)
-{	val_list args;
+{
+	va_list valist;
+	unsigned int i = 0, j, c = 0;
+	char *str;
+	const char t_arg[] = "cifs";
 
-	char c;
-	unsigned int i, arg_count = 0, check_printed = 0; /* check & count arg*/
-	double f;
-	char *s;
-	const char *p = format;
-
-	va_start(args, format);
-
-	while (*p)
+	va_start(valist, format);
+	while (format && format[i])
 	{
-		switch (*p++)
+		j = 0;
+		while (t_arg[j])
+		{
+			if (format[i] == t_arg[j] && c)
+			{
+				printf(", ");
+				break;
+			} j++;
+		}
+		switch (format[i])
 		{
 			case 'c':
-				c = va_arg(args, int);
-				printf("%c", c);
-				check_printed = 1;
+				printf("%c", va_arg(valist, int)), c = 1;
 				break;
 			case 'i':
-				i = va_arg(agrs, int);
-				printf("%d", i);
-				check_printed = 1;
+				printf("%d", va_arg(valist, int)), c = 1;
 				break;
 			case 'f':
-				f = va_arg(args, double);
-				printf("%f", f);
-				check_printed = 1;
+				printf("%f", va_arg(valist, double)), c = 1;
 				break;
 			case 's':
-				s = va_arg(args, char *);
-				if (s)
-				{
-					printf("%s", s);
-					check_printed = 1;
-				}
-				else
+				str = va_arg(valist, char *), c = 1;
+				if (!str)
 				{
 					printf("(nil)");
+					break;
 				}
+				printf("%s", str);
 				break;
-			default:
-				break;
-		}
-		arg_count++;
-
-		if (*p && (arg_count < 2 || check_printed))
-		{
-			printf(", ");
-			check_printed = 0;
-		}
+		} i++;
 	}
-	va_end(args);
-	printf("\n");
+	printf("\n"), va_end(valist);
 }
