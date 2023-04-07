@@ -10,21 +10,19 @@
 unsigned int binary_to_unit(const char *b)
 {
 	unsigned int result = 0;
-	int len = strlen(b);
-	int i;
+
 
 	if (b == NULL)
 		return (0);
 
-	for (i = 0; i < len; i++)
+	while (*b != '\0')
 	{
-		if (b[i] != '0' && b[i] != '1')
+		if (*b != '\0' && *b != '1')
 			return (0);
 
-		result <<= 1;
-		if (b[i] == '1')
-			result |= 1;
+		result = (result << 1) + (*b++ - '0');
 	}
 	return (result);
+
 }
 
