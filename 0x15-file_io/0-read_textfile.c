@@ -19,12 +19,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (filename == NULL)
 		return (0);
 
-	buffer = malloc(sizeof(char) * letters);
+	buffer = malloc(sizeof(char *) * letters);
 
 	if (buffer == NULL)
 		return (0);
 
-	file_descriptor = open(filename, O_RDONLY);
+	file_descriptor = open(filename, O_RDONLY, 0600);
 	if (file_descriptor == -1)
 	{
 		free(buffer);
