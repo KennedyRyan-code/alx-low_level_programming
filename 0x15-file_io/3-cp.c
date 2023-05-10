@@ -17,7 +17,7 @@ void _print_error(int file_from, int file_to, char *argv[])
 	if (file_to < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Cant't write to %s\n", argv[2]);
-		exit(98);
+		exit(99);
 	}
 }
 
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	}
 
 	file_from = open(argv[1], O_RDONLY);
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	_print_error(file_from, file_to, argv);
 
 	n_chars = 1024;
